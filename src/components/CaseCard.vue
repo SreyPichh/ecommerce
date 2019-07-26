@@ -2,7 +2,8 @@
   <div class="l_content">
     <div class="c_content">
       <div class="c_card__container" v-for="(item, index) in items" :key="index">
-        <div class="c_card" @click="toggleModal">
+        <div class="c_card" @click="toggleModal = true">
+          <detail-modal v-if="toggleModal" @close="toggleModal = false"></detail-modal>
           <h4 class="c_card__title">{{ item.caseName }}</h4>
 
           <div class="c_card__img"></div>
@@ -15,8 +16,14 @@
   </div>
 </template>
 <script>
+
+import DetailModal from '@/components/DetailModal.vue'
+
 export default {
   name: "CaseCard",
+  components: {
+    DetailModal
+  },
   data() {
     return {
       items: [
@@ -56,12 +63,8 @@ export default {
           caseName: "Cute Fruit",
           price: 23
         }
-      ]
-    }
-  },
-  methods: {
-    toggleModal () {
-      this.$store.dispatch('toggleModal')
+      ],
+      toggleModal: false
     }
   }
 }

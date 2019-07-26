@@ -1,7 +1,8 @@
 <template>
+<div class="modal_body">
   <div class="l_modal">
     <div class="c_button">
-      <button class="c_close__icon c_icon__close"></button>
+      <button class="c_close__icon c_icon__close" @click="this.$emit('close')"></button>
     </div>
     <dv class="c_modal">
       <div class="c_case__img">
@@ -20,17 +21,40 @@
       </div>
     </dv>
   </div>
+</div>
 </template>
 
 <script>
 export default {
-  name: 'DetailModal'
+  name: 'DetailModal',
+  methods: {
+    closeModal () {
+      this.toggleModal = true
+    }
+  }
 }
 </script>
+
 <style scoped>
 body {
   background-color: rgba(0, 0, 0, .5);
   font-family: 'Roboto', sans-serif;
+}
+
+button:focus {
+  outline: none;
+}
+
+.modal_body {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .1);
+  display: table;
+  transition: opacity .3s ease;
 }
 
 .l_modal {
@@ -44,7 +68,7 @@ body {
   padding: 20px;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, .2);
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, .1);
 }
 
 .c_icon__close {
@@ -122,6 +146,21 @@ body {
   background-color: #3271dc;
   color: #ffffff;
 }
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .l_modal,
+.modal-leave-active .l_modal {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
 </style>
 
 

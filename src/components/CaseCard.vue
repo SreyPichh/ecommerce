@@ -2,11 +2,11 @@
   <div class="l_content">
     <div class="c_content">
       <div class="c_card__container" v-for="(item, index) in items" :key="index">
-        <div class="c_card" @click="toggleModal = true">
+        <div class="c_card">
           <detail-modal v-if="toggleModal" @close="toggleModal = false"></detail-modal>
           <h4 class="c_card__title">{{ item.caseName }}</h4>
 
-          <div class="c_card__img"></div>
+          <div class="c_card__img" @click="toggleModal = true"></div>
           <div class="l_add_cart">
             <button class="c_add__cart" @click="addToCart(item)">${{ item.price }} - Add to cart</button>
           </div>
@@ -69,7 +69,16 @@ export default {
   },
   methods: {
     addToCart (item) {
-      this.$emit('update-cart', item)
+      var isAdd = false
+      for (var i=0; i < this.cart.length; i++ ) {
+        var newItem = this.cart[i]
+        newItem.quantity = newItem.quantity + 1
+        this.cart.$set(i, newItem)
+      }
+      if(!isAdd) {
+        item.quantity = 1
+        this.cart.push(item)
+      }
     }
   }
 }

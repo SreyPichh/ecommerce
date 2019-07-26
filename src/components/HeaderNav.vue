@@ -4,17 +4,25 @@
       <div class="c_header">
         <div class="c_left__nav">
           <h2 class="c_logo">CaseCompany</h2>
-        </div>
-        <div class="c_right__nav">
-          <h4 :cart="this.cart">Cart (0)</h4>
+          <cart ></cart>
         </div>
       </div>
     </div>
   </nav>
 </template>
 <script>
+import Cart from '@/components/Cart.vue'
 export default {
-  name: 'HeaderNav'
+  name: 'HeaderNav',
+  components: {
+    Cart
+  },
+  cart: 0,
+  data () {
+    return {
+      
+    }
+  }
 }
 </script>
 <style scoped>
@@ -40,14 +48,7 @@ export default {
   align-items: center;
   padding: 6px;
 }
-.c_right__nav {
-  float: right;
-}
-.c_right__nav h4 {
-  color: cornflowerblue;
-  text-decoration: underline;
-  padding: 4px;
-}
+
 </style>
 
 

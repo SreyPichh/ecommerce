@@ -1,12 +1,12 @@
 <template>
   <div class="home">
     <header-nav></header-nav>
+    
     <slider></slider>
     <main class="l_main">
     <div class="c_main">
       <div class="l_main__inner">
         <filter-search></filter-search>
-        
       </div>
       <case-card @update-cart="updateCart"></case-card>
     </div>
@@ -21,6 +21,7 @@ import Slider from '@/components/Slider.vue'
 import FilterSearch from '@/components/FilterSearch.vue'
 import CaseCard from '@/components/CaseCard.vue'
 
+
 export default {
   name: 'home',
   components: {
@@ -29,6 +30,7 @@ export default {
     FilterSearch,
     CaseCard
   },
+  cart: [],
   methods: {
     updateCart (e) {
       this.cart.push(e)

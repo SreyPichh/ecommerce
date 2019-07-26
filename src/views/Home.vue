@@ -8,7 +8,7 @@
         <filter-search></filter-search>
         
       </div>
-      <case-card></case-card>
+      <case-card @update-cart="updateCart"></case-card>
     </div>
     </main>
   </div>
@@ -28,6 +28,11 @@ export default {
     Slider,
     FilterSearch,
     CaseCard
+  },
+  methods: {
+    updateCart (e) {
+      this.cart.push(e)
+    }
   }
 }
 </script>

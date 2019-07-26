@@ -6,7 +6,7 @@
           <h2 class="c_logo">CaseCompany</h2>
         </div>
         <div class="c_right__nav">
-          <h4>Cart (0)</h4>
+          <h4 :cart="this.cart">Cart (0)</h4>
         </div>
       </div>
     </div>

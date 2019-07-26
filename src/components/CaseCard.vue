@@ -8,7 +8,7 @@
 
           <div class="c_card__img"></div>
           <div class="l_add_cart">
-            <button class="c_add__cart">${{ item.price }} - Add to cart</button>
+            <button class="c_add__cart" @click="addToCart(item)">${{ item.price }} - Add to cart</button>
           </div>
         </div>
       </div>
@@ -65,6 +65,11 @@ export default {
         }
       ],
       toggleModal: false
+    }
+  },
+  methods: {
+    addToCart (item) {
+      this.$emit('update-cart', item)
     }
   }
 }

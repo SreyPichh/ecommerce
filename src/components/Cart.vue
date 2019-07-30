@@ -5,13 +5,12 @@
 </template>
 <script>
 export default {
-  props: ['cart', 'cartTotal'],
   data() {
     return {
-      showCart: false
+      showCart: false,
+      cart: []
     }
-  },
-  cart: []
+  }
 }
 </script>
 

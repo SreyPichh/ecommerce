@@ -8,7 +8,7 @@
       <div class="l_main__inner">
         <filter-search></filter-search>
       </div>
-      <case-card @update-cart="updateCart"></case-card>
+      <product></product>
     </div>
     </main>
   </div>
@@ -19,8 +19,7 @@
 import HeaderNav from '@/components/HeaderNav.vue'
 import Slider from '@/components/Slider.vue'
 import FilterSearch from '@/components/FilterSearch.vue'
-import CaseCard from '@/components/CaseCard.vue'
-
+import Product from '@/components/Product.vue'
 
 export default {
   name: 'home',
@@ -28,14 +27,16 @@ export default {
     HeaderNav,
     Slider,
     FilterSearch,
-    CaseCard
+    Product
   },
-  cart: [],
-  methods: {
-    updateCart (e) {
-      this.cart.push(e)
+  data() {
+    return {
+      checkoutBool:  false,
+      cart: [],
+      cartSubtotal: 0,
+      cartTotal: 0
     }
-  }
+  },
 }
 </script>
 <style scoped>

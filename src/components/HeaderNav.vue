@@ -3,8 +3,10 @@
     <div class="l_header">
       <div class="c_header">
         <div class="c_left__nav">
-          <h2 class="c_logo">CaseCompany</h2>
-          <cart ></cart>
+          <h2 class="c_logo">{{ logo }}</h2>
+          <div>
+          <cart></cart>
+          </div>
         </div>
       </div>
     </div>
@@ -17,10 +19,9 @@ export default {
   components: {
     Cart
   },
-  cart: 0,
   data () {
     return {
-      
+      logo: 'CaseCompany'
     }
   }
 }

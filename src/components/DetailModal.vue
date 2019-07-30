@@ -1,10 +1,10 @@
 <template>
-<div class="modal_body">
+<div class="modal_body" v-show="showModal">
   <div class="l_modal">
     <div class="c_button">
-      <button class="c_close__icon c_icon__close" @click="this.$emit('close')"></button>
+      <button class="c_close__icon c_icon__close" @click="closeModal(showModal)"></button>
     </div>
-    <dv class="c_modal">
+    <div class="c_modal">
       <div class="c_case__img">
         <div class="c_img"></div>
       </div>
@@ -19,7 +19,7 @@
             </div>
         </div>
       </div>
-    </dv>
+    </div>
   </div>
 </div>
 </template>
@@ -27,9 +27,14 @@
 <script>
 export default {
   name: 'DetailModal',
+  data () {
+    return {
+      showModal: false
+    }
+  },
   methods: {
-    closeModal () {
-      this.toggleModal = true
+    closeModal (showModal) {
+      this.$emit('close', showModal)
     }
   }
 }
